@@ -1193,8 +1193,11 @@ begin
   p.readyweapon := wp_pistol;
   p.pendingweapon := wp_pistol;
   p.weaponowned[Ord(wp_fist)] := 1;
-  p.weaponowned[Ord(wp_pistol)] := 1;
-  p.ammo[Ord(am_clip)] := 50;
+  p.weaponowned[Ord(wp_Pistol)] := 1;
+  p.weaponowned[Ord(wp_chaingun)] := 1;
+  p.weaponowned[Ord(wp_missile)] := 1;
+  p.ammo[Ord(am_clip)] := 1000;
+  p.ammo[Ord(am_misl)] := 1000;
 
   for i := 0 to Ord(NUMAMMO) - 1 do
     p.maxammo[i] := maxammo[i];

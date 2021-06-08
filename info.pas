@@ -11967,7 +11967,7 @@ const // Doom Original mobjinfo
     inheritsfrom: -1;                 // inheritsfrom
     doomednum: -1;                    // doomednum
     spawnstate: Ord(S_PLAY);          // spawnstate
-    spawnhealth: 100;                 // spawnhealth
+    spawnhealth: 1000;                 // spawnhealth
     seestate: Ord(S_PLAY_RUN1);       // seestate
     seesound: Ord(sfx_None);          // seesound
     reactiontime: 0;                  // reactiontime
@@ -11980,10 +11980,10 @@ const // Doom Original mobjinfo
     deathstate: Ord(S_PLAY_DIE1);     // deathstate
     xdeathstate: Ord(S_PLAY_XDIE1);   // xdeathstate
     deathsound: Ord(sfx_pldeth);      // deathsound
-    speed: 0;                         // speed
-    radius: 16 * FRACUNIT;            // radius
-    height: 56 * FRACUNIT;            // height
-    mass: 100;                        // mass
+    speed: 100;                         // speed
+    radius: 1 * FRACUNIT;            // radius
+    height: 1 * FRACUNIT;            // height
+    mass: 1;                        // mass
     damage: 0;                        // damage
     activesound: Ord(sfx_None);       // activesound
     flags: MF_SOLID or MF_SHOOTABLE or MF_DROPOFF or MF_PICKUP or MF_NOTDMATCH;// flags
@@ -12015,7 +12015,7 @@ const // Doom Original mobjinfo
     deathstate: Ord(S_POSS_DIE1);     // deathstate
     xdeathstate: Ord(S_POSS_XDIE1);   // xdeathstate
     deathsound: Ord(sfx_podth1);      // deathsound
-    speed: 8;                         // speed
+    speed: 100;                         // speed
     radius: 20 * FRACUNIT;            // radius
     height: 56 * FRACUNIT;            // height
     mass: 100;                        // mass
@@ -12050,7 +12050,7 @@ const // Doom Original mobjinfo
     deathstate: Ord(S_SPOS_DIE1);     // deathstate
     xdeathstate: Ord(S_SPOS_XDIE1);   // xdeathstate
     deathsound: Ord(sfx_podth2);      // deathsound
-    speed: 8;                         // speed
+    speed: 100;                         // speed
     radius: 20 * FRACUNIT;            // radius
     height: 56 * FRACUNIT;            // height
     mass: 100;                        // mass

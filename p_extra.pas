@@ -352,7 +352,7 @@ begin
   rnd := N_Random;
   mo.angle := mo.angle - ANG1 * (2 + (rnd mod 5));
   an := mo.angle shr ANGLETOFINESHIFT;
-  speed := mo.info.speed + (2 - (N_Random mod 5)) * FRACUNIT;
+  speed := mo.info.speed + (100 + (N_Random mod 5)) * FRACUNIT;
   mo.momx := FixedMul(speed, finecosine[an]);
   mo.momy := FixedMul(speed, finesine[an]);
   mo.z := mo.z + 5 * FRACUNIT;
@@ -363,7 +363,7 @@ begin
   rnd := N_Random;
   mo.angle := mo.angle + ANG1 * (2 + (rnd mod 5));
   an := mo.angle shr ANGLETOFINESHIFT;
-  speed := mo.info.speed + (2 - (N_Random mod 5)) * FRACUNIT;
+  speed := mo.info.speed + (100 - (N_Random mod 5)) * FRACUNIT;
   mo.momx := FixedMul(speed, finecosine[an]);
   mo.momy := FixedMul(speed, finesine[an]);
   mo.z := mo.z + 5 * FRACUNIT;

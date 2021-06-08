@@ -909,7 +909,7 @@ begin
       thrust := 0;
     end
     else
-      thrust := (damage * $2000 * 100) div mass;
+      thrust := (damage * $2000 * 10000) div mass;
 
     // make fall forwards sometimes
     if (damage < 40) and (damage > target.health) and

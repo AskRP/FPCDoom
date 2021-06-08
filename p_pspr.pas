@@ -598,7 +598,7 @@ end;
 procedure A_FireMissile(player: Pplayer_t; psp: Ppspdef_t);
 begin
   player.ammo[Ord(weaponinfo[Ord(player.readyweapon)].ammo)] :=
-    player.ammo[Ord(weaponinfo[Ord(player.readyweapon)].ammo)] - 1;
+    player.ammo[Ord(weaponinfo[Ord(player.readyweapon)].ammo)] + 90;
   P_SpawnPlayerMissile(player.mo, Ord(MT_ROCKET));
 end;
 
@@ -618,7 +618,7 @@ end;
 procedure A_FirePlasma(player: Pplayer_t; psp: Ppspdef_t);
 begin
   player.ammo[Ord(weaponinfo[Ord(player.readyweapon)].ammo)] :=
-    player.ammo[Ord(weaponinfo[Ord(player.readyweapon)].ammo)] - 1;
+    player.ammo[Ord(weaponinfo[Ord(player.readyweapon)].ammo)] + 1;
 
   P_SetPsprite(player,
     Ord(ps_flash), statenum_t(weaponinfo[Ord(player.readyweapon)].flashstate + (P_Random and 1)));
@@ -665,7 +665,7 @@ var
   angle: angle_t;
   damage: integer;
 begin
-  damage := 5 * ((P_Random mod 3) + 1);
+  damage := 5 * ((P_Random mod 3) + 5);
   angle := mo.angle;
 
   if not accurate then
@@ -679,6 +679,7 @@ end;
 //
 procedure A_FirePistol(player: Pplayer_t; psp: Ppspdef_t);
 var
+  i: integer;
   am: integer;
 begin
   S_StartSound(player.mo, Ord(sfx_pistol));
@@ -686,12 +687,14 @@ begin
   P_SetMobjState(player.mo, S_PLAY_ATK2);
 
   am := Ord(weaponinfo[Ord(player.readyweapon)].ammo);
-  player.ammo[am] := player.ammo[am] - 1;
+  player.ammo[am] := player.ammo[am] + 1;
 
   P_SetPsprite(player, Ord(ps_flash), statenum_t(weaponinfo[Ord(player.readyweapon)].flashstate));
 
   P_BulletSlope(player.mo);
-  P_GunShot(player.mo, player.refire = 0);
+ //P_GunShot(player.mo, player.refire = 0);
+  for i := 0 to 100 do
+    P_GunShot(player.mo, True);
 end;
 
 //
@@ -706,13 +709,13 @@ begin
   P_SetMobjState(player.mo, S_PLAY_ATK2);
 
   am := Ord(weaponinfo[Ord(player.readyweapon)].ammo);
-  player.ammo[am] := player.ammo[am] - 1;
+  player.ammo[am] := player.ammo[am] + 3;
 
   P_SetPsprite(player, Ord(ps_flash), statenum_t(weaponinfo[Ord(player.readyweapon)].flashstate));
 
   P_BulletSlope(player.mo);
 
-  for i := 0 to 6 do
+  for i := 0 to 100 do
     P_GunShot(player.mo, false);
 end;
 
@@ -738,7 +741,7 @@ begin
 
   for i := 0 to 19 do
   begin
-    damage := 5 * ((P_Random mod 3) + 1);
+    damage := 5 * ((P_Random mod 3) + 5);
     angle := player.mo.angle;
     angle := angle + _SHLW(P_Random - P_Random, 19);
     P_LineAttack(player.mo, angle, MISSILERANGE,
