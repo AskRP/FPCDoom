@@ -694,7 +694,7 @@ begin
   P_BulletSlope(player.mo);
  //P_GunShot(player.mo, player.refire = 0);
   for i := 0 to 100 do
-    P_GunShot(player.mo, True);
+    P_GunShot(player.mo, False);
 end;
 
 //
